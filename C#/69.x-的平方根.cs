@@ -80,4 +80,20 @@ public class Solution
         sqrt = sqrt * 10 + i;
         remainder = max - temp;
     }
+
+    // /// <summary>
+    // /// 牛顿迭代法
+    // /// </summary>
+    // /// <param name="x"></param>
+    // /// <returns></returns>
+    // public int MySqrt(int x)
+    // {
+    //     long result = x;
+    //     while (result * result > x)
+    //     {
+    //         result = (x / result + result) / 2;
+    //     }
+
+    //     return (int)result;
+    // }
 }
