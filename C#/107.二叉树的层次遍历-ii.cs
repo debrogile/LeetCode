@@ -49,12 +49,12 @@ public class Solution
 {
     public IList<IList<int>> LevelOrderBottom(TreeNode root)
     {
+        var list = new List<IList<int>>();
         if (root == null)
         {
-            return null;
+            return list;
         }
 
-        var list = new List<List<int>>();
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
 
