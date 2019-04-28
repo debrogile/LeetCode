@@ -42,15 +42,10 @@ public class Solution
         var sb = new StringBuilder();
         while (n > 0)
         {
-            int temp = n % 26;
-            n /= 26;
+            n--;
 
-            char c = (char) (temp + 64);
-            if (temp == 0)
-            {
-                c = 'Z';
-                n--;
-            }
+            char c = (char) ((n % 26) + 'A');
+            n /= 26;
 
             sb.Insert(0, c);
         }
