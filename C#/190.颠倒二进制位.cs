@@ -40,7 +40,7 @@ public class Solution
         while (i < 32)
         {
             result = result << 1;
-            result += n & 1;
+            result |= n & 1;
             n = n >> 1;
 
             i++;
