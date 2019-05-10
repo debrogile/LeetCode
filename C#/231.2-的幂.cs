@@ -26,21 +26,30 @@ public class Solution
 {
     public bool IsPowerOfTwo(int n)
     {
+        // if (n <= 0)
+        // {
+        //     return false;
+        // }
+        // else if (n == 1)
+        // {
+        //     return true;
+        // }
+        // else if (n % 2 == 0)
+        // {
+        //     return IsPowerOfTwo(n / 2);
+        // }
+        // else
+        // {
+        //     return false;
+        // }
+
         if (n <= 0)
         {
             return false;
         }
-        else if (n == 1)
-        {
-            return true;
-        }
-        else if (n % 2 == 0)
-        {
-            return IsPowerOfTwo(n / 2);
-        }
         else
         {
-            return false;
+            return (n & (n - 1)) == 0;
         }
     }
 }
