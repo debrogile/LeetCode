@@ -40,13 +40,18 @@ public class Solution
                 if (i != curr)
                 {
                     nums[curr++] = nums[i];
-                    nums[i] = 0;
+                    //nums[i] = 0;
                 }
                 else
                 {
                     curr++;
                 }
             }
+        }
+
+        while (curr < nums.Length)
+        {
+            nums[curr++] = 0;
         }
     }
 }
