@@ -35,29 +35,30 @@ using System.Collections.Generic;
 
 public class NumArray
 {
-    private int[] arr;
-    private Dictionary<string, int> dict = new Dictionary<string, int>();
+    private int[] sums;
 
     public NumArray(int[] nums)
     {
-        arr = nums;
+        sums = new int[nums.Length];
+
+        int sum = 0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            sum += nums[i];
+            sums[i] = sum;
+        }
     }
 
     public int SumRange(int i, int j)
     {
-        string key = string.Format("{0},{1}", i, j);
-        if (!dict.ContainsKey(key))
+        if (i == 0)
         {
-            int sum = 0;
-            for (int index = i; index <= j; index++)
-            {
-                sum += arr[index];
-            }
-
-            dict.Add(key, sum);
+            return sums[j];
         }
-
-        return dict[key];
+        else
+        {
+            return sums[j] - sums[i - 1];
+        }
     }
 }
 
