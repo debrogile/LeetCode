@@ -37,25 +37,47 @@ public class Solution
     {
         int count = 0;
 
-        int curr = nums[0];
+        int min = nums[0];
         int index = 1;
         while (index < nums.Length)
         {
-            int temp = nums[index] + count;
-            if (temp >= curr)
+            int diff = nums[index] - min;
+            if (diff >= 0)
             {
-                count += temp - curr;
-                curr = temp;
+                count += diff;
             }
             else
             {
-                count += index * (curr - temp);
-                curr += (index - 1) * (curr - temp);
+                count -= diff * index;
+                min = nums[index];
             }
 
             index++;
         }
 
         return count;
+
+        // int count = 0;
+
+        // int curr = nums[0];
+        // int index = 1;
+        // while (index < nums.Length)
+        // {
+        //     int temp = nums[index] + count;
+        //     if (temp >= curr)
+        //     {
+        //         count += temp - curr;
+        //         curr = temp;
+        //     }
+        //     else
+        //     {
+        //         count += index * (curr - temp);
+        //         curr += (index - 1) * (curr - temp);
+        //     }
+
+        //     index++;
+        // }
+
+        // return count;
     }
 }
