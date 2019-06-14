@@ -49,22 +49,12 @@ public class Solution
             {
                 if (grid[i][j] == 1)
                 {
-                    if (i - 1 < 0 || grid[i - 1][j] == 0)
+                    if (i == 0 || grid[i - 1][j] == 0)
                     {
                         girth++;
                     }
 
-                    if (i + 1 >= grid.Length || grid[i + 1][j] == 0)
-                    {
-                        girth++;
-                    }
-
-                    if (j - 1 < 0 || grid[i][j - 1] == 0)
-                    {
-                        girth++;
-                    }
-
-                    if (j + 1 >= grid[i].Length || grid[i][j + 1] == 0)
+                    if (j == 0 || grid[i][j - 1] == 0)
                     {
                         girth++;
                     }
@@ -72,6 +62,6 @@ public class Solution
             }
         }
 
-        return girth;
+        return girth * 2;
     }
 }
