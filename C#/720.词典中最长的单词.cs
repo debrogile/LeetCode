@@ -60,7 +60,7 @@ public class Solution
         }
 
         string result = string.Empty;
-        var queue = new Queue<Node>();
+        var queue = new Queue<TrieNode>();
         foreach (var node in trie.Root.Nodes)
         {
             if (node != null && !string.IsNullOrEmpty(node.Word))
@@ -92,11 +92,11 @@ public class Solution
 
 public class Trie
 {
-    public Node Root { get; private set; }
+    public TrieNode Root { get; private set; }
 
     public Trie()
     {
-        Root = new Node();
+        Root = new TrieNode();
     }
 
     public void Insert(string word)
@@ -107,7 +107,7 @@ public class Trie
             int index = c - 'a';
             if (curr.Nodes[index] == null)
             {
-                var node = new Node(c);
+                var node = new TrieNode(c);
                 curr.Nodes[index] = node;
             }
 
@@ -118,20 +118,20 @@ public class Trie
     }
 }
 
-public class Node
+public class TrieNode
 {
     private const int L = 26;
 
     public char Value { get; private set; }
-    public Node[] Nodes { get; private set; }
+    public TrieNode[] Nodes { get; private set; }
     public string Word { get; set; }
 
-    public Node()
+    public TrieNode()
     {
-        Nodes = new Node[L];
+        Nodes = new TrieNode[L];
     }
 
-    public Node(char c) : base()
+    public TrieNode(char c) : this()
     {
         Value = c;
     }
